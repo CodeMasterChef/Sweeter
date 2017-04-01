@@ -16,31 +16,32 @@ export default class ControlPanel extends Component {
     render() {
 
         return (
-            <ScrollView style={styles.container}>
-                <Text style={styles.controlText}>Control Panel</Text>
+            <View style={styles.container}>
+                
                 <TouchableOpacity style={styles.button} onPress={() => {
                     this.props.closeDrawer();
                 }}>
                     <Text>Close Drawer</Text>
                 </TouchableOpacity>
-            </ScrollView>
+            </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        padding: 20,
-        backgroundColor: 'red',
+       paddingTop: 20,
+       flex: 1,
+       backgroundColor: 'red' 
     },
     controlText: {
         color: 'white',
     },
     button: {
+
         backgroundColor: 'white',
         borderWidth: 1,
-        borderColor: 'black',
-        paddingTop: 200,
+        borderColor: 'black'
+     
     }
 })

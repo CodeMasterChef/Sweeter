@@ -13,19 +13,12 @@ export default class Main extends Component {
         super(props);
     }
 
-    openControlPanel = () => {
-        this.drawer.open()
-    };
-    closePanel() { 
-        this.drawer.close();
-    }
-
     render() {
         return (
             <ScrollView style={styles.container}>
                 <Text>MAIN</Text>
-                <TouchableOpacity style={styles.button} onPress={ () => { this.openControlPanel() }}>
-                    <Text>Open Drawer</Text>
+                <TouchableOpacity style={styles.button} onPress={ () => { this.props.openMenu() }}>
+                    <Text>Open Menu</Text>
                 </TouchableOpacity>
 
             </ScrollView>
@@ -35,14 +28,12 @@ export default class Main extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#7699dd',
-        padding: 20,
+        backgroundColor: 'blue',
         flex: 1,
     },
     button: {
         backgroundColor: 'white',
         borderWidth: 1,
-        borderColor: 'black',
-        padding: 10,
+        borderColor: 'black'
     }
 });

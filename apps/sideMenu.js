@@ -12,7 +12,6 @@ import Drawer from 'react-native-drawer';
 import Main from './main';
 import ControlPanel from './controlPanel';
 
-import { Drawer } from 'native-base';
 export default class SlideMenu extends Component {
 
     openControlPanel() {
@@ -27,20 +26,15 @@ export default class SlideMenu extends Component {
             this.drawer.close();
         }} />
         return (
-                <Drawer  style={styles.drawer}
+                <Drawer  style={ {backgroundColor : 'blue' , flex : 1   }}
                     ref={c => this.drawer = c}
-                    type="static"
+                    tapToClose={true}
                     content={controlPanel}
-                    openDrawerOffset={30}
+                    openDrawerOffset={100}
                     tweenHandler={Drawer.tweenPresets.parallax}>
-
-                    <ScrollView >
-                        <Text>MAIN</Text>
-                        <TouchableOpacity onPress={() => { this.openControlPanel() }}>
-                            <Text>Open Drawer</Text>
-                        </TouchableOpacity>
-                    </ScrollView>
-
+                    
+                    <Main openMenu ={ ()=> { this.drawer.open()}} />
+                   
                 </Drawer>
 
         );
@@ -49,7 +43,10 @@ export default class SlideMenu extends Component {
 
 const styles = StyleSheet.create(
     {
-        drawer: { shadowColor: '#000000', shadowOpacity: 0.8, shadowRadius: 3 },
-        main: { paddingLeft: 3 },
+        drawer: { backgroundColor: 'blue' },
+        main : {
+            backgroundColor: 'yellow'
+        }
+        
     }
 ) 
